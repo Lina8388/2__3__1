@@ -29,19 +29,14 @@
             <td th:text="${user.getSurname()}"></td>
             <td th:text="${user.getEmail()}"></td>
 
-
                 <td><form th:method="DELETE" th:action="@{/remove/{id}(id=${user.id})}">
                     <input type="submit" value="Удалить">
                 </form></td>
                 <td><form method="get" th:action="@{/update/{id}(id=${user.id})}">
                     <input type="submit" value="Обновить">
                 </form></td>
-
-
         </tr>
     </table>
-
-
     <p>
         <button type="button" class="btn btn-primary"><a href="new">Add new User</a></button>
     </p>

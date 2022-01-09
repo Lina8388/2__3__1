@@ -6,26 +6,33 @@
     <title>Update user</title>
 </head>
 <body>
-<form th:method="Post" th:action="@{/edit/{id}(id=${user.getId()})}" th:object="${user}">
+<form th:method="Put" th:action="@{/edit/{id}(id=${user.getId()})}" th:object="${user}">
     <div>
+        <br>
+        <br>
         <td>ID</td>
         <td><input type="number" th:field="*{id}" readonly/></td>
 
-        <tr>
+       <br>
+        <br>
             <td>Name:</td>
             <td><input type="text" th:field="*{name}" id="name"/></td>
-        </tr>
-        <tr>
+
+        <br>
+        <br>
+
             <td>Surname:</td>
             <td><input type="text" th:field="*{surname}" id="surname" /></td>
-        </tr>
-        <tr>
+        <br>
+        <br>
+
             <td>Email:</td>
             <td><input type="text" th:field="*{email}" id="email"/></td>
-        </tr>
-        <tr>
+
+        <br>
+        <br>
             <input type="submit" value="Update"></td>
-        </tr>
+
 
     </div>
 </form>

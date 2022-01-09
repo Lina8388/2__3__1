@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import web.models.User;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -27,25 +26,13 @@ public class UserDaoImp implements UserDao {
         entityManager.persist(user);
     }
 
-  /*  @Override
-    public void update(User user) {
-        entityManager.merge(user);
-    }*/
 
-   /* @Override
-    public void update(int id, User updateUser) {
-        User userToBeUpdated = getUser(id);
-        userToBeUpdated.setName(updateUser.getName());
-    }*/
-
-
-    @Transactional
     @Override
     public User getUser(int id) {
         return entityManager.find(User.class, id);
     }
 
-    @Transactional
+
     @Override
     public User update(int id, User user) {
         User  toBeUpdated = getUser(id);
@@ -57,11 +44,9 @@ public class UserDaoImp implements UserDao {
         return entityManager.merge(toBeUpdated);
     }
 
-    @Transactional
     @Override
     public void removeUser(int id) {
         entityManager.remove(entityManager.find(User.class, id));
     }
-
 
 }

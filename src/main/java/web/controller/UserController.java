@@ -44,7 +44,7 @@ public class UserController {
     }
 
 
-    @PostMapping(value ="edit/{id}")
+    @PutMapping(value ="edit/{id}")
     public String update(@ModelAttribute("user") User user,@PathVariable("id") int id){
         userService.update(id, user);
         return "redirect:/";
@@ -55,5 +55,4 @@ public class UserController {
         userService.removeUser(id);
         return "redirect:/";
     }
-
 }
