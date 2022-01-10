@@ -17,8 +17,7 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public List<User> getListUsers() {
-        String HQL = "from User";
-        return  entityManager.createQuery(HQL, User.class).getResultList();
+        return  entityManager.createQuery("from User", User.class).getResultList();
     }
 
     @Override
@@ -36,11 +35,9 @@ public class UserDaoImp implements UserDao {
     @Override
     public User update(int id, User user) {
         User  toBeUpdated = getUser(id);
-        if(user.getId()==id){
             toBeUpdated.setName(user.getName());
             toBeUpdated.setSurname(user.getSurname());
             toBeUpdated.setEmail(user.getEmail());
-        }
         return entityManager.merge(toBeUpdated);
     }
 
